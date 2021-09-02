@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-// const dbURI = `mongodb://${db.host}:${db.port}/${db.name}`;
 const dbURI = process.env.DB_URI || '';
 
 const options = {
@@ -9,12 +8,9 @@ const options = {
   useUnifiedTopology: true,
   useFindAndModify: false,
   autoIndex: true,
-  poolSize: 10, // Maintain up to 10 socket connections
-  // If not connected, return errors immediately rather than waiting for reconnect
+  poolSize: 10,
   bufferMaxEntries: 0,
   autoReconnect: true,
-  // connectTimeoutMS: 10000, // Give up initial connection after 10 seconds
-  // socketTimeoutMS: 45000, // Close sockets after 45 seconds of inactivity
 };
 
 // Create the database connection
